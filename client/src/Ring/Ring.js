@@ -1,18 +1,26 @@
-import React, { useRef, useEffect } from "react"
+import React, {useRef, useEffect} from "react"
 import * as THREE from "three"
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
+import {DRACOLoader} from "three/examples/jsm/loaders/DRACOLoader"
 
-const Ring = ({ currentRotateOne, currentRotateTwo, currentRotateThree, currentRotateFour }) => {
+const Ring = ({
+                  currentRotateOne,
+                  currentRotateTwo,
+                  currentRotateThree,
+                  currentRotateFour,
+                  currentFutNumber,
+                  currentPathProject
+              }) => {
 
     const mountRef = useRef(null)
     const controls = useRef(null)
     const controls2 = useRef(null)
     const controls3 = useRef(null)
     const controls4 = useRef(null)
-
+    const newPath = './../../../uploads/pipkaDoor2Draco.gltf'
     useEffect(() => {
+
             //Data from the canvas
             const currentRef = mountRef.current
             const {clientWidth: width, clientHeight: height} = currentRef
@@ -70,18 +78,20 @@ const Ring = ({ currentRotateOne, currentRotateTwo, currentRotateThree, currentR
 
             const gltfLoader = new GLTFLoader()
             gltfLoader.setDRACOLoader(dracoLoader)
-            gltfLoader.load(`./../../../uploads/pipkaDoor2Draco.gltf`, (gltf) => {
+            gltfLoader.load(newPath, (gltf) => {
 
                 while (gltf.scene.children.length) {
                     if (gltf.scene.children[0].name.includes("rotateOne")) {
-                        rotateOne.add(gltf.scene.children[0])}
-                    else if (gltf.scene.children[0].name.includes("rotateTwo")) {
-                        rotateTwo.add(gltf.scene.children[0])}
-                    else if (gltf.scene.children[0].name.includes("rotateThree")) {
-                        rotateThree.add(gltf.scene.children[0])}
-                    else if (gltf.scene.children[0].name.includes("rotateFour")) {
-                        rotateFour.add(gltf.scene.children[0])}
-                    else {baza.add(gltf.scene.children[0])}
+                        rotateOne.add(gltf.scene.children[0])
+                    } else if (gltf.scene.children[0].name.includes("rotateTwo")) {
+                        rotateTwo.add(gltf.scene.children[0])
+                    } else if (gltf.scene.children[0].name.includes("rotateThree")) {
+                        rotateThree.add(gltf.scene.children[0])
+                    } else if (gltf.scene.children[0].name.includes("rotateFour")) {
+                        rotateFour.add(gltf.scene.children[0])
+                    } else {
+                        baza.add(gltf.scene.children[0])
+                    }
                 }
                 changeOne(currentRotateOne)
                 changeTwo(currentRotateTwo)
@@ -153,10 +163,10 @@ const Ring = ({ currentRotateOne, currentRotateTwo, currentRotateThree, currentR
                 }
             }
 
-            controls.current = { changeOne }
-            controls2.current = { changeTwo }
-            controls3.current = { changeThree }
-            controls4.current = { changeFour }
+            controls.current = {changeOne}
+            controls2.current = {changeTwo}
+            controls3.current = {changeThree}
+            controls4.current = {changeFour}
 
             //Lights
             const ambientalLight = new THREE.AmbientLight(0xffffff, 0.1)
@@ -205,7 +215,7 @@ const Ring = ({ currentRotateOne, currentRotateTwo, currentRotateThree, currentR
         <div
             className='Contenedor3D'
             ref={mountRef}
-            style={{ width: "100%", height: "100vh" }}
+            style={{width: "100%", height: "100vh"}}
         >
         </div>
     )

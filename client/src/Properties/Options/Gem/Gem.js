@@ -7,12 +7,15 @@ const Gem = ({
                  setCurrentRotateTwo,
                  setCurrentRotateThree,
                  setCurrentRotateFour,
+                 setCurrentFutNumber,
+                 setCurrentPathProject,
                  currentRotateOne,
                  currentRotateTwo,
                  currentRotateThree,
                  currentRotateFour,
+                 currentFutNumber,
+                 currentPathProject
              }) => {
-
     const userId = "6435a2c19bdc5fcf5e235cf3"
     const [myKey, setMyKey] = useState([])
 
@@ -41,7 +44,6 @@ const Gem = ({
                 params: {userId}
             })
                 .then((response) => setMyKey(response.data))
-
         } catch (error) {
             console.log(error)
         }
@@ -58,9 +60,9 @@ const Gem = ({
                     return (
                         <div key={index}>
                             {
-                                todo ?
-                                    <div className="flex flex-wrap mt-8">
+                                currentFutNumber === index ?
 
+                                    <div className="flex flex-wrap mt-8">
                                         <div className="flex flex-wrap">
                                             {
                                                 todo.paramA.map((todoOne, index) => {

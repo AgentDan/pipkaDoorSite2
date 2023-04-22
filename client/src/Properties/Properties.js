@@ -7,10 +7,14 @@ const Properties = ({
                         setCurrentRotateTwo,
                         setCurrentRotateThree,
                         setCurrentRotateFour,
+                        setCurrentFutNumber,
+                        setCurrentPathProject,
                         currentRotateOne,
                         currentRotateTwo,
                         currentRotateThree,
                         currentRotateFour,
+                        currentFutNumber,
+                        currentPathProject
                     }) => {
     return (
         <PropertiesContainer>
@@ -21,10 +25,14 @@ const Properties = ({
                         setCurrentRotateTwo={setCurrentRotateTwo}
                         setCurrentRotateThree={setCurrentRotateThree}
                         setCurrentRotateFour={setCurrentRotateFour}
+                        setCurrentFutNumber={setCurrentFutNumber}
+                        setCurrentPathProject={setCurrentPathProject}
                         currentRotateOne={currentRotateOne}
                         currentRotateTwo={currentRotateTwo}
                         currentRotateThree={currentRotateThree}
                         currentRotateFour={currentRotateFour}
+                        currentFutNumber={currentFutNumber}
+                        currentPathProject={currentPathProject}
                     />
                 </div>
             </PropertiesWrapper>
